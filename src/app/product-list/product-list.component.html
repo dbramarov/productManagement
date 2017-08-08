@@ -1,0 +1,21 @@
+<div class="component">
+	<h3>Product List</h3>
+
+	<div class="row">
+	    <div class="col s12 m4 hoverable" *ngFor="let item of subscriptionItems; let idx = index">
+	        <div class="card">
+		        <div class="card-image">
+		          <img src="{{item.image}}">
+		        </div>
+		        <div class="card-content">
+		          <h4>{{item.title}}</h4>
+		          <h5>{{item.price | currency: 'usd':true }}</h5>
+		          <button (click)="edit(idx)" class="btn green lighten-3 waves-effect waves-light">EDIT</button>
+		          <button (click)="delete(idx)" class="btn red waves-effect waves-light">DELETE</button>
+		        </div>
+	        </div>
+	    </div>
+    </div>
+
+</div>
+

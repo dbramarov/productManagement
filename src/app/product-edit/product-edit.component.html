@@ -1,0 +1,23 @@
+<div class="component">
+	<h3 style="margin-bottom: 50px;">Edit Product {{currentItem.title}}</h3>
+	<form (ngSubmit)="onSubmit($event)">
+		<div>
+			<p>Title: <input [(ngModel)]='currentItem.title' #title="ngModel" required minlength="2" type="text" name="title" value="{{currentItem.title}}"></p>
+			<div style="color: red; display: inline-block;" *ngIf="title.errors"><i>*Required and must be at least 2 characters long</i></div>
+		</div>
+		<div>
+			<p>Price: <input [(ngModel)]='currentItem.price' #price="ngModel" required type="number" name="price" placeholder="{{currentItem.price}}"></p>
+			<div style="color: red; display: inline-block;" *ngIf="price.errors"><i>*Price is required</i></div>
+		</div>
+		<div>
+			<p>Image URL: <input [(ngModel)]='currentItem.image' #image="ngModel" required type="text" name="image" placeholder="{{currentItem.image}}"></p>
+			<div style="color: red; display: inline-block;" *ngIf="image.errors"><i>*Image is required</i></div>
+		</div>
+
+		<input *ngIf="title.valid && price.valid && image.valid; else dis" style="margin-top: 20px;" class="btn light-blue waves-effect waves-light" type="submit" value="UPDATE">
+		<ng-template #dis>
+			<input *ngIf="title.invalid && price.invalid && image.invalid" style="margin-top: 20px;" class="btn" type="submit" value="UPDATE" disabled>
+		</ng-template>	
+		<button (click)="back()" class="btn red waves-effect waves-light" style="margin-top: 20px;">BACK</button>
+	</form>
+</div>

@@ -1,0 +1,36 @@
+<div class="component">
+	<h3 style="margin-bottom: 50px;">Create a New Product</h3>
+
+	<form (ngSubmit)="onSubmit($event)">
+
+	 	<div class="input-field">
+			<input required minlength="2" type="text" name="title" id="title" [(ngModel)]='item.title' #title="ngModel">
+			<label for="title">Title</label>
+			<div style="color: red; display: inline-block;" *ngIf="title.errors"><i>*Required and must be at least 2 characters long</i></div>
+    	</div>
+
+		<div class="input-field">
+			<input required type="number" name="price" id="price" [(ngModel)]='item.price' #price="ngModel">
+			<label for="price">Price</label>
+			<div style="color: red; display: inline-block;" *ngIf="price.errors"><i>*Price is required</i></div>
+		</div>
+
+		<div class="input-field">
+			<input required type="text" name="image" id="img" [(ngModel)]='item.image' #image="ngModel">
+			<label for="img">Image URL</label>
+			<div style="color: red; display: inline-block;" *ngIf="image.errors"><i>*Image is required</i></div>
+		</div>
+		
+		<input *ngIf="title.valid && price.valid && image.valid; else dis" style="margin-top: 20px;" class="btn light-blue waves-effect waves-light" type="submit" value="CREATE">
+		<ng-template #dis>
+			<input *ngIf="title.invalid && price.invalid && image.invalid" style="margin-top: 20px;" class="btn" type="submit" value="CREATE" disabled>
+		</ng-template>
+	</form>
+
+</div>
+
+<!-- <p>{{subProducts|json}}</p>
+
+<p>{{temp|json}}</p>
+
+<p>{{item|json}}</p> -->
