@@ -13,11 +13,15 @@
 			<p>Image URL: <input [(ngModel)]='currentItem.image' #image="ngModel" required type="text" name="image" placeholder="{{currentItem.image}}"></p>
 			<div style="color: red; display: inline-block;" *ngIf="image.errors"><i>*Image is required</i></div>
 		</div>
+		<div>
+			<p>Location: <input [(ngModel)]='currentItem.location' #location="ngModel" required type="text" name="location" placeholder="{{currentItem.location}}"></p>
+			<div style="color: red; display: inline-block;" *ngIf="location.errors"><i>*Image is required</i></div>
+		</div>
 
-		<input *ngIf="title.valid && price.valid && image.valid; else dis" style="margin-top: 20px;" class="btn light-blue waves-effect waves-light" type="submit" value="UPDATE">
+		<input *ngIf="title.valid && price.valid && image.valid && location.valid; else dis" style="margin-top: 20px;" class="btn light-blue waves-effect waves-light" type="submit" value="UPDATE">
 		<ng-template #dis>
-			<input *ngIf="title.invalid && price.invalid && image.invalid" style="margin-top: 20px;" class="btn" type="submit" value="UPDATE" disabled>
+			<input *ngIf="title.invalid || price.invalid || image.invalid || location.invalid" style="margin-top: 20px;" class="btn" type="submit" value="UPDATE" disabled>
 		</ng-template>	
-		<button (click)="back()" class="btn red waves-effect waves-light" style="margin-top: 20px;">BACK</button>
+		<button (click)="back()" class="btn red waves-effect waves-light" style="margin-top: 20px; float:right">BACK</button>
 	</form>
 </div>

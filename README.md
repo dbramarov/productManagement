@@ -1,3 +1,8 @@
+#INFO
+
+Created this Mini project to practice Angular 2.
+Uses Materialize and a Google maps API
+
 # ProductManagement
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.2.

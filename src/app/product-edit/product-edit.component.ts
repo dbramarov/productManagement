@@ -9,31 +9,30 @@ import { Subscription } from "rxjs/Subscription";
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnDestroy, OnInit{
-	subscription: Subscription;
-	currentItem: Array<any> = [];
-	id: number;
+    subscription: Subscription;
+    currentItem: Array<any> = [];
+    id: number;
+    subscriptionItems = [];
 
-  	constructor(private _productService: ProductService, private _route: ActivatedRoute, private _router: Router) { 
-	  	this.subscription = this._productService.observedItems.subscribe(
-			items => this.subscriptionItems = items,
-			(err) => { },
-			() => { }
-	  	);  
-	  	this._route.params.subscribe((param)=>{
-	  		this.id = param.id;
-    	});  	
-  	};
+    constructor(private _productService: ProductService, private _route: ActivatedRoute, private _router: Router) {
+        this.subscription = this._productService.observedItems.subscribe(
+            items => this.subscriptionItems = items,
+            (err) => { },
+            () => { }
+        );
+        this._route.params.subscribe((param) => {
+            this.id = param.id;
+        });
+    };
 
-	subscriptionItems = [];
-
-	onSubmit(event){
+	onSubmit(event) {
 		event.preventDefault();
 		this.subscriptionItems[this.id] = this.currentItem;
 		this._productService.updateItems(this.subscriptionItems);
 		this._router.navigate(['/productList']);
 	};
 
-	back(){
+	back() {
 		this._router.navigate(['/productList']);
 	}
 
@@ -41,7 +40,7 @@ export class ProductEditComponent implements OnDestroy, OnInit{
   		this.subscription.unsubscribe();
   	};
 
-  	ngOnInit(){
+  	ngOnInit() {
   		this.currentItem = this.subscriptionItems[this.id];
   	}
 }

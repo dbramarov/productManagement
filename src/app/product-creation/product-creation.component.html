@@ -20,17 +20,16 @@
 			<label for="img">Image URL</label>
 			<div style="color: red; display: inline-block;" *ngIf="image.errors"><i>*Image is required</i></div>
 		</div>
+
+		<div class="input-field">
+			<input required minlength="2" type="text" name="location" id="location" [(ngModel)]='item.location' #location="ngModel">
+			<label for="img">Item Location</label>
+			<div style="color: red; display: inline-block;" *ngIf="location.errors"><i>*Required and must be at least 2 characters long</i></div>
+		</div>
 		
-		<input *ngIf="title.valid && price.valid && image.valid; else dis" style="margin-top: 20px;" class="btn light-blue waves-effect waves-light" type="submit" value="CREATE">
+		<input *ngIf="title.valid && price.valid && image.valid && location.valid; else dis" style="margin-top: 20px;" class="btn waves-effect waves-light" type="submit" value="CREATE">
 		<ng-template #dis>
-			<input *ngIf="title.invalid && price.invalid && image.invalid" style="margin-top: 20px;" class="btn" type="submit" value="CREATE" disabled>
+			<input *ngIf="title.invalid || price.invalid || image.invalid || location.invalid" style="margin-top: 20px;" class="btn" type="submit" value="CREATE" disabled>
 		</ng-template>
 	</form>
-
 </div>
-
-<!-- <p>{{subProducts|json}}</p>
-
-<p>{{temp|json}}</p>
-
-<p>{{item|json}}</p> -->

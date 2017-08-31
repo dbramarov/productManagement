@@ -15,13 +15,12 @@
 
 .pic {
 	width: 100%;
-	height: 100%;
+	height: 80%;
+	border: 3px solid black;
 }
 
 .main {
 	margin: auto;
-	width: 95%;
-	border: 3px solid black;
-	height: 720px;
+	width: 97%;
 	margin-bottom: 30px;
 }
