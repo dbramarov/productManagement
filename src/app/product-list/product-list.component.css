@@ -6,3 +6,19 @@
     margin-right: 10px;
 }
 
+.desc {
+    margin-top: 15px;
+}
+
+.img {
+    padding: 15px 0px 0px 15px;
+}
+
+.cent {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.btn {
+    width: 115px;
+}

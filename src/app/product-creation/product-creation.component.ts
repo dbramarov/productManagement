@@ -12,7 +12,7 @@ export class ProductCreationComponent implements OnDestroy {
 subscription: Subscription;
 
 subProducts = [];
-item = {title: '', price: '', image: '', location: ''};
+item = {title: '', price: '', image: '', location: '', description: ''};
 temp = []
 
 constructor(private _productService: ProductService, private _router: Router) {
