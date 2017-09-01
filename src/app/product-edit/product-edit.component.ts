@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
-import { Subscription } from "rxjs/Subscription";
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
-  selector: 'app-product-edit',
-  templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+    // tslint:disable-next-line:indent
+    selector: 'app-product-edit',
+    templateUrl: './product-edit.component.html',
+    // tslint:disable-next-line:indent
+    styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditComponent implements OnDestroy, OnInit{
     subscription: Subscription;
@@ -34,7 +36,7 @@ export class ProductEditComponent implements OnDestroy, OnInit{
 
 	back() {
 		this._router.navigate(['/productList']);
-	}
+	};
 
   	ngOnDestroy() {
   		this.subscription.unsubscribe();
@@ -42,5 +44,5 @@ export class ProductEditComponent implements OnDestroy, OnInit{
 
   	ngOnInit() {
   		this.currentItem = this.subscriptionItems[this.id];
-  	}
+  	};
 }

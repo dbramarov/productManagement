@@ -20,7 +20,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     HomeComponent,
     ProductListComponent,
     ProductCreationComponent,
-    ProductEditComponent
+    ProductEditComponent,
   ],
   imports: [
     BrowserModule,
